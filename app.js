@@ -1,2 +1,2 @@
-console.log(dados);
+console.log(adados);
 console.log(window.dados);
