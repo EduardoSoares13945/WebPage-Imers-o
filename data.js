@@ -43,3 +43,24 @@ let info = [
     }
     
 ];
+
+  // Função para gerar tags a partir do título e descrição
+  function gerarTags(titulo, descricao) {
+    // Quebrar o título e a descrição em palavras
+    const palavras = (titulo + ' ' + descricao).split(' ');
+  
+    // Remover palavras comuns e irrelevantes (você pode personalizar essa lista)
+    const palavrasChave = palavras.filter(palavra => {
+      const palavrasIrrelevantes = ['o', 'a', 'e', 'de', 'um', 'uma', 'em', 'os', 'as', 'dos', 'das'];
+      return !palavrasIrrelevantes.includes(palavra);
+    });
+  
+    return palavrasChave;
+  }
+  
+  // Adicionar a propriedade "tags" a cada objeto
+  info.forEach(filme => {
+    filme.tags = gerarTags(filme.titulo, filme.descricao);
+  });
+  
+  console.log(info);
